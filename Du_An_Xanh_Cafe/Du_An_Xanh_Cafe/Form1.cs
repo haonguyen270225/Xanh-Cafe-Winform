@@ -10,7 +10,9 @@ namespace Du_An_Xanh_Cafe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello world ! ", "Hello");
+
+            MessageBox.Show("Hello world ! ", "Hello" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+
         }
     }
 }
