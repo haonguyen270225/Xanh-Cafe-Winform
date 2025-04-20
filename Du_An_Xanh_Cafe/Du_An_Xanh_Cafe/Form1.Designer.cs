@@ -34,7 +34,7 @@
             // button1
             // 
             button1.BackColor = Color.Red;
-            button1.Location = new Point(253, 193);
+            button1.Location = new Point(278, 316);
             button1.Name = "button1";
             button1.Size = new Size(150, 64);
             button1.TabIndex = 0;
