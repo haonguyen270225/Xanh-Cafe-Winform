@@ -19,7 +19,7 @@ namespace Du_An_Xanh_Cafe
 
         private void From_Dang_Nhap_Load(object sender, EventArgs e)
         {
-            string ten_Dang_Nhap = " ";
+            string ten_Dang_Nhap = null;
         }
     }
 }
