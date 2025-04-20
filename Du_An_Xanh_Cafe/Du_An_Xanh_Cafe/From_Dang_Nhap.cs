@@ -16,5 +16,10 @@ namespace Du_An_Xanh_Cafe
         {
             InitializeComponent();
         }
+
+        private void From_Dang_Nhap_Load(object sender, EventArgs e)
+        {
+            string ten_Dang_Nhap = " ";
+        }
     }
 }
