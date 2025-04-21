@@ -1,6 +1,6 @@
 ﻿namespace Du_An_Xanh_Cafe
 {
-    partial class Form1
+    partial class Xanh_Cafe
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // Form1
+            // Xanh_Cafe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "Form1";
+            ClientSize = new Size(584, 431);
+            Name = "Xanh_Cafe";
             Text = "Xanh Cafe";
             Load += Form1_Load;
             ResumeLayout(false);

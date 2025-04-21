@@ -13,21 +13,28 @@ namespace Du_An_Xanh_Cafe
         protected DateTime birthday;
         protected string passWork;
         protected string userName;
-        protected string firtNam;
+        protected string firtName;
         protected string lastName;
         protected string middleName;
         protected string numberPhone;
+        protected string positionID;
 
-        protected Class_Employees(string employeeID, DateTime birthday, string passWork, string userName, string firtNam, string lastName, string middleName, string numberPhone    )
+        protected string PassWork { get { return passWork; } }
+        protected string UserName { get { return userName; } }
+        protected string EmployeeID { get { return employeeID; } }
+        protected string NumberPhone { get { return numberPhone; } }
+        protected string PositionID { get { return positionID; } }
+        protected Class_Employees(string employeeID, DateTime birthday, string passWork, string userName, string firtNam, string lastName, string middleName, string numberPhone , string position  )
         {
             this.employeeID = employeeID;
             this.birthday = birthday;
             this.passWork = passWork;
             this.userName = userName;
-            this.firtNam = firtNam;
+            this.firtName = firtNam;
             this.lastName = lastName;
             this.middleName = middleName;
             this.numberPhone = numberPhone;
+            this.positionID = position;
         }
 
         protected Class_Employees()
@@ -36,19 +43,10 @@ namespace Du_An_Xanh_Cafe
             this.birthday = DateTime.MaxValue;
             this.passWork = "";
             this.userName = "";
-            this.firtNam = "";
+            this.firtName = "";
             this.lastName = "";
             this.middleName = "";
             this.numberPhone = "";
         }
-
-        protected  string PassWork {get { return passWork;}}
-        protected string UserName {get { return userName;}}
-        protected string EmployeeID { get { return employeeID; } }
-        
-        
-        
-
-        
     }
 }
