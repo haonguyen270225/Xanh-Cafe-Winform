@@ -1,9 +1,9 @@
 namespace Du_An_Xanh_Cafe
 {
-    public partial class Form1 : Form
+    public partial class Xanh_Cafe : Form
     {
 
-        public Form1()
+        public Xanh_Cafe()
         {
             InitializeComponent();
         }

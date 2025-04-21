@@ -11,7 +11,7 @@ namespace Du_An_Xanh_Cafe
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Demo_Class());
+            Application.Run(new From_Dang_Nhap());
         }
     }
 }
