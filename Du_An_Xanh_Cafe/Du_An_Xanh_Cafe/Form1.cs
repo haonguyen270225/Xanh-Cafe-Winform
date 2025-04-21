@@ -8,10 +8,8 @@ namespace Du_An_Xanh_Cafe
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
-            MessageBox.Show("Hello world ! ", "Hello" , MessageBoxButtons.OK , MessageBoxIcon.Information);
 
         }
     }
