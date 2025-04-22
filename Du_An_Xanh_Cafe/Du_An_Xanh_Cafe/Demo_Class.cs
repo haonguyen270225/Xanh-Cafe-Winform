@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Du_An_Xanh_Cafe.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

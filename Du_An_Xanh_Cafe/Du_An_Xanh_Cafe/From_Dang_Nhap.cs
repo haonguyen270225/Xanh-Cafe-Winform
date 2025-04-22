@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Du_An_Xanh_Cafe.Class;
+using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Du_An_Xanh_Cafe.Class;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Du_An_Xanh_Cafe
@@ -18,56 +21,71 @@ namespace Du_An_Xanh_Cafe
             InitializeComponent();
         }
 
+        #region BienToanCuc
+        Class_Employees nV = new Class_Employees("1121" ,new  DateTime(22/4/2005) , "passWord123" ,"uerName123" ,"Nguyen"  , "Hao" , "Nhat" , "012132313" , "Nhấn Viên");
         private bool flagUserName = true;
-        private bool flagPassWord = true;
+        private bool flagPassWord = true; 
+        #endregion
+
         private void From_Dang_Nhap_Load(object sender, EventArgs e)
         {
+            this.TopMost = true;   // Form se khong bi de khi dang bat
+            chkBoxPassWord.Checked = false;
+            txtPassWord.UseSystemPasswordChar = true;
             txtPassWord.Text = "Password...";
             txtUserName.Text = "User name...";
         }
 
         private void txt_Clar(object sender, MouseEventArgs e)
         {
-            if (flagUserName || flagPassWord)
+            TextBox a = (TextBox)sender;
+            if ((flagUserName || flagPassWord))
             {
-                TextBox a = (TextBox)sender;
                 a.Clear();
             }
         }
-        private void txtUserName_MouseDown(object sender, MouseEventArgs e)
+
+
+        private void chkBoxPassWord_CheckedChanged_1(object sender, EventArgs e)
         {
-            txt_Clar(sender, e);
-            flagUserName = false;
+            txtPassWord.UseSystemPasswordChar = !chkBoxPassWord.Checked;
         }
 
-        private void txtPassWord_MouseDown(object sender, MouseEventArgs e)
+        private void txtUserName_MouseDown_1(object sender, MouseEventArgs e)
         {
-            txt_Clar(sender, e);
-            flagPassWord = false;
-        }
-/*        private void txt_Reset(object sender , EventArgs e)
-        {
-            TextBox a = (TextBox)sender;
-            if (a.Text.Length == 0)
+            if (txtUserName.Text == "User name...")
             {
-
+                txt_Clar(sender, e);
+                flagUserName = false;
             }
-        }*/
-        private void txtUserName_TextChanged(object sender, EventArgs e)
+        }
+     
+
+        private void txtPassWord_MouseDown_1(object sender, MouseEventArgs e)
         {
-            if (txtUserName.Text.Length == 0) 
+            if (txtPassWord.Text == "Password...")
             {
-                txtUserName.Text = "User name...";
-                txtUserName.SelectAll();
+                txt_Clar(sender, e);
+                flagPassWord = false;
             }
         }
 
-        private void txtPassWord_TextChanged(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if(txtPassWord.Text.Length == 0)
+            if(Xu_Ly_Chuoi.CompareString(txtPassWord.Text , nV.PassWork) == true && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == true)){
+                MessageBox.Show("Dang nhap thanh cong !" , "Thông báo !" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+            }
+            else if((Xu_Ly_Chuoi.CompareString(txtPassWord.Text, nV.PassWork) == false) && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false))
             {
-                txtPassWord.Text = "PassWord...";
-                txtPassWord.SelectAll();
+                MessageBox.Show("Mat khau va ten dang nhap khong dung !" , "Thông báo !" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if(Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false)
+            {
+                MessageBox.Show(" Ten dang nhap khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Mat khau khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
