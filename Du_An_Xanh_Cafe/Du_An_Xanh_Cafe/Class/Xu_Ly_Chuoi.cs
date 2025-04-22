@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 
-namespace Du_An_Xanh_Cafe
+namespace Du_An_Xanh_Cafe.Class
 {
     static internal class Xu_Ly_Chuoi
     {
         public static bool CompareString(string str1, string str2) // so sanh phan biet hoa thuong;
         {
-            if (String.Compare(str1, str2, false) == 0)
+            if (string.Compare(str1, str2, false) == 0)
                 return true;
             else
                 return false;
@@ -37,7 +37,7 @@ namespace Du_An_Xanh_Cafe
             }
             for (int i = 0; i < chars.Length; i++)
             {
-                if ((char.IsDigit(chars[i]) == true) || chars[i] == ' ' || (chars[i] < 'a' && chars[i] > 'z') || (chars[i] < 'A' && chars[i] > 'Z'))
+                if (char.IsDigit(chars[i]) == true || chars[i] == ' ' || chars[i] < 'a' && chars[i] > 'z' || chars[i] < 'A' && chars[i] > 'Z')
                 {
                     return false;
                 }
@@ -60,11 +60,11 @@ namespace Du_An_Xanh_Cafe
 
         public static bool CheckNumberPhone(string str)
         {
-            str = Xu_Ly_Chuoi.DeleteSpase(str);
+            str = DeleteSpase(str);
             char[] chars = str.ToCharArray();
             for (int i = 0; i < chars.Length; i++)
             {
-                if (Char.IsDigit(chars[i]) == false) return false; // Chuoi Numberphone khong duoc chua ky tu;
+                if (char.IsDigit(chars[i]) == false) return false; // Chuoi Numberphone khong duoc chua ky tu;
             }
             return false;
         }
