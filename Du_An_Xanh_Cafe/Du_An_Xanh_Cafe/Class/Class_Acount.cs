@@ -20,10 +20,10 @@ namespace Du_An_Xanh_Cafe.Class
             this.userName = "";
         }
 
-        protected internal Class_Acount(string passWord, string userName)
+        protected internal Class_Acount( string userName , string passWord)
         {
-            this.passWord = passWord;
             this.userName = userName;
+            this.passWord = passWord;
         }
 
         protected internal static bool  Check_Acount(Class_Acount a , Class_Acount b)

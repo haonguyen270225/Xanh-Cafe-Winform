@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Du_An_Xanh_Cafe.Class;
+using System.Security.Cryptography;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Du_An_Xanh_Cafe
@@ -22,9 +23,9 @@ namespace Du_An_Xanh_Cafe
         }
 
         #region BienToanCuc
-        Class_Employees nV = new Class_Employees("1121" ,new  DateTime(22/4/2005) , new Class_Acount("userName" , "passWork") ,"Nguyen"  , "Hao" , "Nhat" , "012132313" , "Nhấn Viên");
+        Class_Employees nV = new Class_Employees("1121", new DateTime(22 / 4 / 2005), new Class_Acount("userName", "passWork"), "Nguyen", "Hao", "Nhat", "012132313", "Nhấn Viên");
         private bool flagUserName = true;
-        private bool flagPassWord = true; 
+        private bool flagPassWord = true;
         #endregion
 
         private void From_Dang_Nhap_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace Du_An_Xanh_Cafe
                 flagUserName = false;
             }
         }
-     
+
         private void txtPassWord_MouseDown_1(object sender, MouseEventArgs e)
         {
             if (txtPassWord.Text == "Password...")
@@ -85,9 +86,9 @@ namespace Du_An_Xanh_Cafe
             //{
             //    MessageBox.Show("Mat khau khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
-            string passWork = txtPassWord.Text;
-            string userName = txtUserName.Text;
-            Class_Acount Dang_Nhap = new Class_Acount(passWork , userName);
+            string stru = txtUserName.Text;
+            string strp = txtPassWord.Text;
+            Class_Acount Dang_Nhap = new Class_Acount(stru, strp);
             if (Class_Acount.Check_Acount(Dang_Nhap, nV.Acount) == true)
             {
                 MessageBox.Show("Dang Nhap thanh cong !", "Thong bao !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -95,6 +96,14 @@ namespace Du_An_Xanh_Cafe
             else
             {
                 MessageBox.Show("Thong tin tai khoan khong dung !", "Thong bao !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void From_Dang_Nhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap.PerformClick();
             }
         }
     }

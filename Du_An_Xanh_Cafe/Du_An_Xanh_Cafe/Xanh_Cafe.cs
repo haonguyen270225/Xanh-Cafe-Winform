@@ -10,7 +10,7 @@ namespace Du_An_Xanh_Cafe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

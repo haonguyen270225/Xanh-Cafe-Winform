@@ -34,9 +34,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 431);
+            ClientSize = new Size(984, 561);
+            MinimumSize = new Size(1000, 600);
             Name = "Xanh_Cafe";
+            StartPosition = FormStartPosition.Manual;
             Text = "Xanh Cafe";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ResumeLayout(false);
         }

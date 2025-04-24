@@ -149,10 +149,12 @@
             Controls.Add(label1);
             Controls.Add(btnDangNhap);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            KeyPreview = true;
             Name = "From_Dang_Nhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập";
             Load += From_Dang_Nhap_Load;
+            KeyDown += From_Dang_Nhap_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

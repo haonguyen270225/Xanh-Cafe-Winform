@@ -57,7 +57,7 @@ namespace Du_An_Xanh_Cafe.Class
             }
             return true;
         }
-
+        
         public static bool CheckNumberPhone(string str)
         {
             str = DeleteSpase(str);
@@ -68,7 +68,6 @@ namespace Du_An_Xanh_Cafe.Class
             }
             return false;
         }
-        
 
     }
 }
