@@ -22,7 +22,7 @@ namespace Du_An_Xanh_Cafe
         }
 
         #region BienToanCuc
-        Class_Employees nV = new Class_Employees("1121" ,new  DateTime(22/4/2005) , "passWord123" ,"uerName123" ,"Nguyen"  , "Hao" , "Nhat" , "012132313" , "Nhấn Viên");
+        Class_Employees nV = new Class_Employees("1121" ,new  DateTime(22/4/2005) , new Class_Acount("userName" , "passWork") ,"Nguyen"  , "Hao" , "Nhat" , "012132313" , "Nhấn Viên");
         private bool flagUserName = true;
         private bool flagPassWord = true; 
         #endregion
@@ -45,7 +45,6 @@ namespace Du_An_Xanh_Cafe
             }
         }
 
-
         private void chkBoxPassWord_CheckedChanged_1(object sender, EventArgs e)
         {
             txtPassWord.UseSystemPasswordChar = !chkBoxPassWord.Checked;
@@ -60,7 +59,6 @@ namespace Du_An_Xanh_Cafe
             }
         }
      
-
         private void txtPassWord_MouseDown_1(object sender, MouseEventArgs e)
         {
             if (txtPassWord.Text == "Password...")
@@ -72,20 +70,31 @@ namespace Du_An_Xanh_Cafe
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if(Xu_Ly_Chuoi.CompareString(txtPassWord.Text , nV.PassWork) == true && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == true)){
-                MessageBox.Show("Dang nhap thanh cong !" , "Thông báo !" , MessageBoxButtons.OK , MessageBoxIcon.Information);
-            }
-            else if((Xu_Ly_Chuoi.CompareString(txtPassWord.Text, nV.PassWork) == false) && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false))
+            //if(Xu_Ly_Chuoi.CompareString(txtPassWord.Text , nV.PassWork) == true && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == true)){
+            //    MessageBox.Show("Dang nhap thanh cong !" , "Thông báo !" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+            //}
+            //else if((Xu_Ly_Chuoi.CompareString(txtPassWord.Text, nV.PassWork) == false) && (Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false))
+            //{
+            //    MessageBox.Show("Mat khau va ten dang nhap khong dung !" , "Thông báo !" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else if(Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false)
+            //{
+            //    MessageBox.Show(" Ten dang nhap khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Mat khau khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            string passWork = txtPassWord.Text;
+            string userName = txtUserName.Text;
+            Class_Acount Dang_Nhap = new Class_Acount(passWork , userName);
+            if (Class_Acount.Check_Acount(Dang_Nhap, nV.Acount) == true)
             {
-                MessageBox.Show("Mat khau va ten dang nhap khong dung !" , "Thông báo !" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if(Xu_Ly_Chuoi.CompareString(txtUserName.Text, nV.UserName) == false)
-            {
-                MessageBox.Show(" Ten dang nhap khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Dang Nhap thanh cong !", "Thong bao !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Mat khau khong dung !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thong tin tai khoan khong dung !", "Thong bao !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
